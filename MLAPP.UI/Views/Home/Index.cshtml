@@ -1,0 +1,34 @@
+﻿@model MLAPP.Common.MLResponse
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Please Enter your Sentiment</h1>
+    <form asp-controller="Home" asp-action="GetPrediction" method="post">       
+        <input type="text" name="Sentiment" id="Sentiment" class="form-control" />
+        <br />
+        <button class="btn" type="submit">Save</button>
+    </form>
+    <br />
+    <div class="align-content-between">
+       
+            @if (Model != null)
+            {<table class="table">
+                    <tr>
+                        <th>Sentiment Text</th>
+                        <th>Prediction</th>
+                        <th>Probability</th>
+                    </tr>
+                    <tbody>
+                        <tr><td>@Model.SentimentText</td><td>@Model.Prediction</td><td>@Model.Probability</td></tr>
+                    </tbody>
+                </table>
+
+            }
+      
+
+
+    </div>
+    
+</div>
